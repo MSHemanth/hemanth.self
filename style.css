@@ -1,46 +1,84 @@
+/* Dark Blue Academic Theme */
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  line-height: 1.6;
 }
 
 header {
-  background: #1f4d78;
-  color: white;
+  background-color: #1b263b;
+  padding: 1rem;
   text-align: center;
-  padding: 2rem 1rem;
+  border-bottom: 4px solid #415a77;
 }
 
-header nav a {
-  color: white;
-  margin: 0 1rem;
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #e0e1dd;
+}
+
+header p {
+  margin: 0.5rem 0;
+  color: #aebbcf;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: #0d1b2a;
+}
+
+nav ul li {
+  margin: 0 0.5rem;
+}
+
+nav ul li a {
   text-decoration: none;
-  font-weight: bold;
+  color: #e0e1dd;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #415a77;
+  color: #fff;
 }
 
 main {
-  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-h1, h2 {
-  margin-bottom: 0.5rem;
+h2 {
+  color: #f4f4f4;
+  border-bottom: 2px solid #778da9;
+  padding-bottom: 0.3rem;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  background: #1f4d78;
-  color: white;
+  background-color: #1b263b;
+  color: #aebbcf;
+  border-top: 4px solid #415a77;
+  margin-top: 2rem;
 }
 
-.button {
-  display: inline-block;
-  background: #007acc;
-  color: white;
-  padding: 0.5rem 1rem;
+footer a {
+  color: #e0e1dd;
   text-decoration: none;
-  margin-top: 1rem;
-  border-radius: 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
