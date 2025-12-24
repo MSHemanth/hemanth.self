@@ -1,10 +1,20 @@
-/* GLOBAL STYLES */
-body, html  {
+:root {
+    --sidebar-width: 260px;
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --nav-bg: #0f172a;
+    --nav-hover: #1e293b;
+    --text-main: #1e293b;
+    --bg-main: #f8fafc;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    color: #222;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
     overflow-x: hidden;
 }
 
@@ -13,102 +23,143 @@ body, html  {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: #000428;
+    background-color: var(--nav-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    animation: fadeOut 0s ease 2s forwards;
+    animation: fadeOut 0.5s ease 2s forwards;
 }
 
 #loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #004e92;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--primary-light);
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     animation: spin 1s linear infinite;
 }
 
-/* Hide content initially, fade in after loader */
 .content {
     opacity: 0;
-    animation: fadeIn 1ms ease 102ms forwards;
+    animation: fadeIn 0.1s ease 0.2s forwards;
 }
 
-/* NAVIGATION */
-header {
-    background: linear-gradient(to right, #004e92, #000428);
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-}
-
+/* SIDE NAVIGATION */
 nav {
-    background: #222;
-    padding: 0.5rem 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--nav-bg);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 0;
+    z-index: 100;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
 }
 
 nav a {
-    color: white;
-    margin: 0 1rem;
+    color: #94a3b8;
+    padding: 1rem 2rem;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    margin: 0.25rem 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: block;
+    position: relative;
+    overflow: hidden;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: white;
+    background: var(--nav-hover);
+    padding-left: 2.5rem;
 }
 
-/* MAIN CONTENT */
-main {
+nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary-light);
+    transform: scaleY(0);
+    transition: var(--transition);
+}
+
+nav a:hover::before {
+    transform: scaleY(1);
+}
+
+/* ADJUSTED LAYOUT FOR SIDEBAR */
+header {
+    margin-left: var(--sidebar-width);
+    background: white;
+    color: var(--nav-bg);
     padding: 2rem;
-    max-width: 900px;
-    margin: auto;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+main {
+    margin-left: var(--sidebar-width);
+    padding: 3rem;
+    max-width: 1000px;
 }
 
 .section-title {
-    color: #004e92;
-    border-bottom: 2px solid #004e92;
-    padding-bottom: 5px;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--nav-bg);
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 .card {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #f1f5f9;
+    transition: var(--transition);
 }
 
-/* FOOTER */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
 footer {
+    margin-left: var(--sidebar-width);
     text-align: center;
-    padding: 1rem;
-    background: #004e92;
-    color: white;
+    padding: 2rem;
+    color: #64748b;
+    font-size: 0.875rem;
 }
 
 /* ANIMATIONS */
-@keyframes spin {
-    to { transform: rotate(360deg); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateX(20px); } 
+    to { opacity: 1; transform: translateX(0); } 
 }
 
-/* Initially hide content */
-.hidden {
-    visibility: hidden;
-}
-
-/* Show content after loader */
+.hidden { visibility: hidden; }
 .show {
     visibility: visible;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 0.6s ease forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav { width: 70px; }
+    nav a { padding: 1rem; text-align: center; font-size: 0; }
+    nav a:hover { padding-left: 1rem; }
+    header, main, footer { margin-left: 70px; }
 }
