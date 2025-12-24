@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Hemanth Madduri</title>
+  <title>Projects | Madduri Sai Hemanth Yagna Kasyap</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
   <header>
-    <h1>Hemanth Madduri</h1>
+    <h1>Madduri Sai Hemanth Yagna Kasyap</h1>
     <nav>
-      <a class="active" href="index.html">Home</a>
-      <a href="education.html">Education</a>
-      <a href="projects.html">Projects</a>
-      <a href="publications.html">Publications</a>
-      <a href="certifications.html">Certifications & Achievements</a>
-      <a href="courses.html">Courses</a>
-      <a href="training.html">Industrial Training</a>
-      <a href="responsibilities.html">Positions of Responsibility</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a class="active" href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="publications.html"><i class="fas fa-book"></i> Publications</a>
+      <a href="certifications.html"><i class="fas fa-certificate"></i> Certifications & Achievements</a>
+      <a href="courses.html"><i class="fas fa-chalkboard-teacher"></i> Courses</a>
+      <a href="training.html"><i class="fas fa-tools"></i> Industrial Training</a>
+      <a href="responsibilities.html"><i class="fas fa-users"></i> Positions of Responsibility</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     </nav>
   </header>
 
@@ -35,9 +36,18 @@
 
       <div class="card">
         <h3>Design of a Torsion Loading Device for Testing Jet Vane Linkage Used in Thrust Vector Control</h3>
-        <p><strong>Institution:</strong> DRDL Hyderabad (Internship Project)</p>
-        <p><strong>Keywords:</strong> CAD Design, Torsional Loading Device, Jet Vane Linkage System Testing, Structural Optimization, Thrust Vector Control Testing</p>
-        <p><strong>Year:</strong> 2023</p>
+        
+        <div class="card-meta">
+          <p><strong>Institution:</strong> DRDL Hyderabad (Internship Project)</p>
+          <p><strong>Keywords:</strong> CAD Design, Torsional Loading Device, Jet Vane Linkage System Testing, Structural Optimization, Thrust Vector Control Testing</p>
+          <p><strong>Year:</strong> 2023</p>
+        </div>
+
+        <div class="card-action">
+          <a href="https://doi.org/10.1115/IMECE-INDIA2025-159669" target="_blank" class="doi-link">
+            View Publication (DOI)
+          </a>
+        </div>
       </div>
 
       <div class="card">
@@ -83,10 +93,12 @@
       </div>
 
     </section>
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
   </main>
 
   <footer>
     <p>&copy; 2025 Hemanth Madduri</p>
+  <script src="script.js"></script>
   </footer>
 </body>
 </html>
